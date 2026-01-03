@@ -1,38 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Education | Benjamin Lebrun</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <header>
-    <h1>Benjamin Lebrun</h1>
-    <p>PhD Candidate in Psychology, University of Canterbury, New Zealand</p>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="presentations.html">Presentations</a></li>
-        <li><a href="service.html">Service</a></li>
-        <li><a href="awards.html">Awards</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <h1 class="brand-name">Benjamin Lebrun</h1>
+        <p class="brand-tagline">PhD Candidate in Psychology · University of Canterbury · New Zealand</p>
+      </div>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a class="is-active" href="education.html" aria-current="page">Education</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="presentations.html">Presentations</a></li>
+          <li><a href="service.html">Service</a></li>
+          <li><a href="awards.html">Awards</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  <main>
-    <h2>Education</h2>
-    <ul>
-      <li><strong>PhD Candidate in Psychology</strong>, University of Canterbury, New Zealand (2023–2026). Supervisors: Andrew Vonasch &amp; Christoph Bartneck. Project: Phantom Costs Perception in HRI.</li>
-      <li><strong>Master of Integrated Psychology</strong>, University of Minho, Portugal (2020–2022). GPA: 4.0/4.0 or 9.0/9.0. Project: Perceiving Social Beings in Artificial Agents. Supervisors: Tatjana Nazir &amp; Adriana Sampaio.</li>
-      <li><strong>Master of Psychology of Neurocognitive Processes and Affective Sciences</strong>, University of Lille, France (2020–2022). GPA: 3.85/4.0 (8.432/9.0). Supervisor: Tatjana Nazir.</li>
-      <li><strong>Bachelor of Psychology</strong>, University of Lille, France (2018–2020). Highest honours. Supervisor: Loris Schiaratura. Project: Emotional Facial Micro‑Expressions in Alzheimer’s Disease.</li>
-      <li><strong>School of Medicine</strong>, University of Lille, France (2016–2018).</li>
-    </ul>
+
+  <main class="page">
+    <section class="page-hero" aria-labelledby="edu-title">
+      <div class="page-hero-inner">
+        <h2 id="edu-title">Education</h2>
+        <p class="page-subtitle">
+          A snapshot of my academic path, with key details for each degree.
+        </p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="timeline" role="list">
+
+        <!-- PhD -->
+        <article class="edu-card" role="listitem">
+          <header class="edu-card__header">
+            <div class="edu-card__titleblock">
+              <h3 class="edu-card__degree">PhD Candidate in Psychology</h3>
+              <p class="edu-card__inst">
+                University of Canterbury <span class="sep">·</span> New Zealand
+              </p>
+            </div>
+            <div class="edu-card__meta">
+              <span class="pill" aria-label="Dates">2023–2026</span>
+            </div>
+          </header>
+
+          <div class="edu-card__body">
+            <dl class="edu-dl">
+              <div>
+                <dt>Supervisors</dt>
+                <dd>Andrew Vonasch, Christoph Bartneck</dd>
+              </div>
+              <div>
+                <dt>Project</dt>
+                <dd>Phantom Costs Perception in HRI</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- Master Minho -->
+        <article class="edu-card" role="listitem">
+          <header class="edu-card__header">
+            <div class="edu-card__titleblock">
+              <h3 class="edu-card__degree">Master of Integrated Psychology</h3>
+              <p class="edu-card__inst">
+                University of Minho <span class="sep">·</span> Portugal
+              </p>
+            </div>
+            <div class="edu-card__meta">
+              <span class="pill">2020–2022</span>
+            </div>
+          </header>
+
+          <div class="edu-card__body">
+            <dl class="edu-dl">
+              <div>
+                <dt>GPA</dt>
+                <dd>4.0/4.0 (or 9.0/9.0)</dd>
+              </div>
+              <div>
+                <dt>Focus</dt>
+                <dd>Cognitive & social psychology using physiological data (PsychoPy)</dd>
+              </div>
+              <div>
+                <dt>Supervisors</dt>
+                <dd>Tatjana Nazir, Adriana Sampaio</dd>
+              </div>
+              <div>
+                <dt>Project</dt>
+                <dd>Perceiving Social Beings in Artificial Agents</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- Master Lille -->
+        <article class="edu-card" role="listitem">
+          <header class="edu-card__header">
+            <div class="edu-card__titleblock">
+              <h3 class="edu-card__degree">Master of Psychology of Neurocognitive Processes and Affective Sciences</h3>
+              <p class="edu-card__inst">
+                University of Lille <span class="sep">·</span> France
+              </p>
+            </div>
+            <div class="edu-card__meta">
+              <span class="pill">2020–2022</span>
+            </div>
+          </header>
+
+          <div class="edu-card__body">
+            <dl class="edu-dl">
+              <div>
+                <dt>GPA</dt>
+                <dd>3.85/4.0 (or 8.432/9.0)</dd>
+              </div>
+              <div>
+                <dt>Supervisor</dt>
+                <dd>Tatjana Nazir</dd>
+              </div>
+              <div>
+                <dt>Project</dt>
+                <dd>Perceiving Social Beings in Artificial Agents</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- Bachelor -->
+        <article class="edu-card" role="listitem">
+          <header class="edu-card__header">
+            <div class="edu-card__titleblock">
+              <h3 class="edu-card__degree">Bachelor of Psychology</h3>
+              <p class="edu-card__inst">
+                University of Lille <span class="sep">·</span> France
+              </p>
+            </div>
+            <div class="edu-card__meta">
+              <span class="pill">2018–2020</span>
+            </div>
+          </header>
+
+          <div class="edu-card__body">
+            <dl class="edu-dl">
+              <div>
+                <dt>Honours</dt>
+                <dd>Highest honours</dd>
+              </div>
+              <div>
+                <dt>Supervisor</dt>
+                <dd>Loris Schiaratura</dd>
+              </div>
+              <div>
+                <dt>Project</dt>
+                <dd>Emotional Facial Micro-Expressions in Alzheimer’s Disease</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- Medicine -->
+        <article class="edu-card" role="listitem">
+          <header class="edu-card__header">
+            <div class="edu-card__titleblock">
+              <h3 class="edu-card__degree">School of Medicine</h3>
+              <p class="edu-card__inst">
+                University of Lille <span class="sep">·</span> France
+              </p>
+            </div>
+            <div class="edu-card__meta">
+              <span class="pill">2016–2018</span>
+            </div>
+          </header>
+        </article>
+
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Benjamin Lebrun</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
