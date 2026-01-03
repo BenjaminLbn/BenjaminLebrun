@@ -32,15 +32,20 @@ header p {
   font-weight: 400;
 }
 
+/* NAV */
 nav ul {
   list-style: none;
   padding: 0;
   margin: 20px 0 0;
+  display: flex;               /* ✅ more robust than inline-block */
+  flex-wrap: wrap;             /* ✅ wraps nicely on small screens */
+  justify-content: center;
+  gap: 10px 18px;              /* ✅ consistent spacing */
 }
 
 nav li {
-  display: inline-block;
-  margin: 0 15px;
+  display: block;              /* ✅ don’t fight flexbox */
+  margin: 0;                   /* handled by gap */
 }
 
 nav a {
@@ -51,6 +56,7 @@ nav a {
   padding: 5px 0;
 }
 
+/* underline animation */
 nav a::after {
   content: '';
   position: absolute;
@@ -66,8 +72,17 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* ✅ active page state (safe across pages) */
+nav a[aria-current="page"] {
+  color: #2d3748;
+  font-weight: 600;
+}
+nav a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* MAIN panel */
 main {
-  /* Container for page content. Adds a light panel with subtle shadow */
   max-width: 1100px;
   margin: 30px auto;
   padding: 40px 30px;
@@ -147,4 +162,100 @@ h2 {
 
 .category-card a:hover {
   text-decoration: none;
+}
+
+/* =========================================
+   EDUCATION (scoped: will not affect pages)
+   ========================================= */
+
+.edu-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+/* Card */
+.edu-card {
+  background: #ffffff;
+  border: 1px solid #e6ebf2;
+  border-radius: 16px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+}
+
+/* Top row */
+.edu-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.edu-card__degree {
+  margin: 0 0 6px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25em;
+  line-height: 1.25;
+  color: #1f2937;
+}
+
+.edu-card__inst {
+  margin: 0;
+  color: #4a5568;
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+
+/* Dates pill */
+.edu-card__dates {
+  white-space: nowrap;
+  font-size: 0.98em;
+  color: #2d3748;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(90,103,216,0.22);
+  background: rgba(90,103,216,0.07);
+}
+
+/* Meta grid */
+.edu-card__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 22px;
+}
+
+.edu-card__label {
+  font-size: 0.95em;
+  color: #718096;
+  margin-bottom: 4px;
+}
+
+.edu-card__value {
+  font-size: 1.05em;
+  color: #2d3748;
+  line-height: 1.75;
+}
+
+/* Compact card */
+.edu-card--compact .edu-card__top {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+  main {
+    margin: 18px 12px;
+    padding: 26px 18px;
+  }
+}
+
+@media (max-width: 760px) {
+  .edu-card__grid { grid-template-columns: 1fr; }
+  .edu-card__top { flex-direction: column; }
+  .edu-card__dates { align-self: flex-start; }
 }
