@@ -1,108 +1,96 @@
 /* ==========================
-   Education (readability-first)
+   Education cards (SAFE: does not change header/nav)
    ========================== */
 
-.edu-list {
+.edu-list{
   display: grid;
   gap: 18px;
 }
 
-/* Card */
-.edu {
+/* Card container */
+.edu-card{
   background: #ffffff;
   border: 1px solid #e6ebf2;
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 18px 18px 16px;
   box-shadow: 0 10px 24px rgba(0,0,0,0.05);
 }
 
-/* Top row (title + dates) */
-.edu-top {
+/* Top row */
+.edu-card__top{
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 14px;
   padding-bottom: 12px;
   margin-bottom: 12px;
   border-bottom: 1px solid #edf2f7;
 }
 
-.edu-title h3 {
+.edu-card__degree{
   margin: 0 0 6px;
-  font-size: 1.15em;
-  line-height: 1.35;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25em;
+  line-height: 1.25;
   color: #1f2937;
-  letter-spacing: -0.01em;
 }
 
-.edu-sub {
+.edu-card__inst{
   margin: 0;
   color: #4a5568;
-  font-size: 1.02em;
+  font-size: 1.05em;
   line-height: 1.6;
 }
 
 /* Date pill */
-.edu-dates {
+.edu-card__dates{
   white-space: nowrap;
-  font-size: 0.95em;
+  font-size: 0.98em;
   color: #2d3748;
-  padding: 8px 12px;
+  padding: 10px 14px;
   border-radius: 999px;
   border: 1px solid rgba(90,103,216,0.22);
   background: rgba(90,103,216,0.07);
 }
 
-/* Meta grid */
-.edu-grid {
+/* Grid */
+.edu-card__grid{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px 18px;
+  gap: 14px 22px;
 }
 
-.edu-item {
-  min-width: 0;
-}
-
-.edu-label {
-  font-size: 0.92em;
+.edu-card__label{
+  font-size: 0.95em;
   color: #718096;
   margin-bottom: 4px;
 }
 
-.edu-value {
-  font-size: 1.02em;
+.edu-card__value{
+  font-size: 1.05em;
   color: #2d3748;
-  line-height: 1.7; /* readability boost */
+  line-height: 1.75;
 }
 
-/* Compact card */
-.edu--compact .edu-top {
+/* Compact last card */
+.edu-card--compact .edu-card__top{
   border-bottom: none;
   padding-bottom: 0;
   margin-bottom: 0;
 }
 
-/* Improve nav readability: show current page subtly */
-nav a[aria-current="page"] {
+/* Mobile stack */
+@media (max-width: 760px){
+  .edu-card__grid{ grid-template-columns: 1fr; }
+  .edu-card__top{ flex-direction: column; }
+  .edu-card__dates{ align-self: flex-start; }
+}
+
+/* Optional: highlight current page in nav (safe, only affects this attribute) */
+nav a[aria-current="page"]{
   color: #2d3748;
   font-weight: 600;
 }
-
-nav a[aria-current="page"]::after {
+nav a[aria-current="page"]::after{
   width: 100%;
-  background-color: #5a67d8;
-}
-
-/* Responsive: stack meta on mobile */
-@media (max-width: 760px) {
-  .edu-grid {
-    grid-template-columns: 1fr;
-  }
-  .edu-top {
-    flex-direction: column;
-  }
-  .edu-dates {
-    align-self: flex-start;
-  }
 }
