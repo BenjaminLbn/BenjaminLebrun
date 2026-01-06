@@ -316,18 +316,28 @@ h2 {
   max-height: 92vh;
   background: white;
   border-radius: 10px;
-  over
-
-  /* === Modal image zoom (gentle) === */
-#poster-modal-img {
-  width: 100%;
-  height: auto;
-  cursor: zoom-in;
-  transition: transform 0.25s ease;
-  transform-origin: center center;
+  overflow: auto;
+  padding: 1rem;
 }
 
-#poster-modal-img.is-zoomed {
-  transform: scale(1.25); /* try 1.2–1.35 */
-  cursor: zoom-out;
+.poster-modal__content img {
+  width: 100%;
+  height: auto;
+}
+
+.poster-modal__close {
+  position: sticky;
+  top: 0;
+  float: right;
+  border: none;
+  background: #eee;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+.poster-modal__links {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
 }
