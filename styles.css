@@ -259,3 +259,27 @@ h2 {
   .edu-card__top { flex-direction: column; }
   .edu-card__dates { align-self: flex-start; }
 }
+
+
+
+.poster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.poster-item img {
+  width: 100%;
+  border: 1px solid #ddd;
+  transition: transform 0.2s ease;
+}
+
+.poster-item img:hover {
+  transform: scale(1.02);
+}
+
+.poster-item figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
