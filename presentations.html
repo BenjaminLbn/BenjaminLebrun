@@ -50,7 +50,7 @@
                alt="Poster – Improving the Acceptability of Social Robots: Make Them Look Different From Humans">
         </button>
         <figcaption>
-          <strong>ESCOP 2022</strong> — Improving the Acceptability of Social Robots: Make Them Look Different From Humans
+          <strong>ESCoP 2022</strong> — Improving the Acceptability of Social Robots: Make Them Look Different From Humans
           <br>
           <a href="escop_sobarag.pdf" target="_blank" rel="noopener">Open PDF</a> ·
           <a href="escop_sobarag.pdf" download>Download</a>
@@ -86,3 +86,78 @@
         <figcaption>
           <strong>NZPS 2024</strong> — Skepticism about robots’ implausible statements
           <br>
+          <a href="posters/nzps_2024_robot_skepticism.pdf" target="_blank" rel="noopener">Open PDF</a> ·
+          <a href="posters/nzps_2024_robot_skepticism.pdf" download>Download</a>
+        </figcaption>
+      </figure>
+
+      <!-- Poster 4 -->
+      <figure class="poster-item">
+        <button class="poster-thumb"
+                data-img="posters/escop_eslp_2022_acceptability.png"
+                data-pdf="posters/escop_eslp_2022_acceptability.pdf"
+                aria-label="Open poster ESCoP & ESLP 2022">
+          <img src="posters/escop_eslp_2022_acceptability.png"
+               alt="Poster – Improving the acceptability of social robots">
+        </button>
+        <figcaption>
+          <strong>ESCoP &amp; ESLP 2022</strong> — Improving the acceptability of social robots
+          <br>
+          <a href="posters/escop_eslp_2022_acceptability.pdf" target="_blank" rel="noopener">Open PDF</a> ·
+          <a href="posters/escop_eslp_2022_acceptability.pdf" download>Download</a>
+        </figcaption>
+      </figure>
+
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="poster-modal" id="poster-modal" aria-hidden="true">
+    <div class="poster-modal__backdrop"></div>
+    <div class="poster-modal__content">
+      <button class="poster-modal__close" aria-label="Close">×</button>
+      <img id="poster-modal-img" src="" alt="">
+      <p class="poster-modal__links">
+        <a id="poster-modal-pdf" href="" target="_blank" rel="noopener">Open PDF</a> ·
+        <a id="poster-modal-download" href="" download>Download</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    const modal = document.getElementById("poster-modal");
+    const modalImg = document.getElementById("poster-modal-img");
+    const modalPdf = document.getElementById("poster-modal-pdf");
+    const modalDl = document.getElementById("poster-modal-download");
+
+    document.querySelectorAll(".poster-thumb").forEach(btn => {
+      btn.addEventListener("click", () => {
+        modalImg.src = btn.dataset.img;
+        modalPdf.href = btn.dataset.pdf;
+        modalDl.href = btn.dataset.pdf;
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (
+        e.target.classList.contains("poster-modal__backdrop") ||
+        e.target.classList.contains("poster-modal__close")
+      ) {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+      }
+    });
+  </script>
+
+</body>
+</html>
