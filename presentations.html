@@ -124,5 +124,39 @@
     </div>
   </div>
 
+  <!-- JS -->
+  <script>
+    const modal = document.getElementById("poster-modal");
+    const modalImg = document.getElementById("poster-modal-img");
+    const modalPdf = document.getElementById("poster-modal-pdf");
+    const modalDl = document.getElementById("poster-modal-download");
+
+    document.querySelectorAll(".poster-thumb").forEach(btn => {
+      btn.addEventListener("click", () => {
+        modalImg.src = btn.dataset.img;
+        modalPdf.href = btn.dataset.pdf;
+        modalDl.href = btn.dataset.pdf;
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (
+        e.target.classList.contains("poster-modal__backdrop") ||
+        e.target.classList.contains("poster-modal__close")
+      ) {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+      }
+    });
+  </script>
 </body>
 </html>
