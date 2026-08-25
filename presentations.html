@@ -175,5 +175,116 @@
       }
     });
   </script>
+
+  ```html
+<!-- Interactive HRI Journey Map -->
+<section class="journey-map-section">
+  <h2>My HRI Journey</h2>
+  <p class="map-intro">
+    Places that have shaped my research journey in Human–Robot Interaction.
+  </p>
+
+  <div id="journey-map"></div>
+</section>
+
+<!-- Leaflet CSS -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<!-- Leaflet JS -->
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+<script>
+  // Create the map
+  const map = L.map('journey-map', {
+    scrollWheelZoom: false
+  }).setView([20, 20], 2);
+
+  // OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+
+  // Custom red dot
+  const redDot = L.divIcon({
+    className: 'custom-map-marker',
+    html: '<div class="red-dot"></div>',
+    iconSize: [18, 18],
+    iconAnchor: [9, 9]
+  });
+
+
+  // Locations
+  const locations = [
+    {
+      name: "Lille, France",
+      coordinates: [50.6292, 3.0573],
+      title: "Lille",
+      dates: "2026–present",
+      description:
+        "Neuropsychology and Human–Robot Interaction research."
+    },
+
+    {
+      name: "Melbourne, Australia",
+      coordinates: [-37.8136, 144.9631],
+      title: "HRI 2025",
+      dates: "2025",
+      description:
+        "Student Volunteer Chair at the ACM/IEEE International Conference on Human–Robot Interaction."
+    },
+
+    {
+      name: "Christchurch, New Zealand",
+      coordinates: [-43.5321, 172.6362],
+      title: "University of Canterbury",
+      dates: "2019–2026",
+      description:
+        "PhD in Psychology. Research on the perception of robots and phantom costs in Human–Robot Interaction."
+    },
+
+    {
+      name: "Edinburgh, Scotland",
+      coordinates: [55.9533, -3.1883],
+      title: "ROOTS-HRI",
+      dates: "2026",
+      description:
+        "Co-organiser of the ROOTS-HRI workshop at the University of Edinburgh."
+    }
+  ];
+
+
+  // Add markers
+  locations.forEach(location => {
+
+    const marker = L.marker(
+      location.coordinates,
+      { icon: redDot }
+    ).addTo(map);
+
+    marker.bindTooltip(
+      `<strong>${location.name}</strong>`,
+      {
+        direction: 'top',
+        offset: [0, -8],
+        opacity: 0.95
+      }
+    );
+
+    marker.bindPopup(`
+      <div class="map-popup">
+        <h3>${location.title}</h3>
+        <div class="popup-location">${location.name}</div>
+        <div class="popup-date">${location.dates}</div>
+        <p>${location.description}</p>
+      </div>
+    `);
+  });
+</script>
 </body>
 </html>
