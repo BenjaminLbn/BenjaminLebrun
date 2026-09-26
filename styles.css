@@ -676,3 +676,70 @@ main.met-page { max-width: 1180px; }
   .met .met-list { max-height: 420px; }
   .met-legend { padding: 6px 8px; font-size: 12px; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   PHOTOGRAPHY (photography.html)
+   ========================================= */
+
+main.photo-page { max-width: 1000px; }
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.photo-grid figure { margin: 0; }
+
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 6px solid var(--color-surface);
+  outline: 1px solid var(--color-divider);
+  transition: transform 0.2s ease;
+}
+
+.photo-grid a:hover img { transform: scale(1.02); }
+
+.photo-grid figcaption {
+  margin-top: var(--space-2);
+  font-size: 0.9em;
+  line-height: 1.5;
+  font-style: italic;
+  color: color-mix(in srgb, var(--color-text) 65%, transparent);
+}
+
+.rights-notice {
+  margin-top: var(--space-8);
+  padding: var(--space-4);
+  border: 1px solid var(--color-divider);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  font-size: 0.88em;
+  line-height: 1.6;
+}
+
+main .rights-notice p { margin: 0 0 var(--space-2); text-align: left; }
+main .rights-notice p:last-child { margin-bottom: 0; }
