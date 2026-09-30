@@ -216,6 +216,40 @@ kbd { font-family: var(--font-body); font-size: 11px; color: var(--color-faint);
 .pub-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
 .pub-actions .btn { height: 28px; font-size: 12.5px; padding: 0 11px; }
 .row.is-hidden { display: none; }
+.pub-tools-2 { gap: 8px; margin-top: -2px; }
+.pub-tools-2 .count { margin-left: auto; }
+.pop { position: relative; }
+.pop-n { min-width: 18px; height: 18px; padding: 0 5px; border-radius: 99px; background: var(--color-accent-700); color: #fff; font-size: 11px; line-height: 18px; text-align: center; font-feature-settings: "tnum"; }
+.pop-n:empty { display: none; }
+.pop-btn[aria-expanded="true"] { border-color: var(--color-accent); background: var(--color-accent-100); }
+.pop-menu { position: absolute; z-index: 30; top: calc(100% + 6px); left: 0; min-width: 250px; padding: 6px; border-radius: 12px; border: 1px solid var(--color-divider); background: color-mix(in srgb, var(--color-raised) 94%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: var(--shadow-lg); display: grid; animation: popIn .3s var(--spring) both; transform-origin: top left; }
+.pop-menu[hidden] { display: none; }
+@keyframes popIn { from { opacity: 0; transform: scale(.96) translateY(-4px); } }
+.chk { position: relative; display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 8px; font-size: 13.5px; cursor: pointer; transition: background .2s, opacity .2s; }
+.chk:hover { background: var(--color-bg); }
+.chk input { position: absolute; opacity: 0; pointer-events: none; }
+.chk .box { flex: none; width: 16px; height: 16px; border-radius: 4px; border: 1px solid var(--color-divider-strong); background: var(--color-raised); display: grid; place-items: center; transition: background .2s, border-color .2s, transform .35s var(--spring); }
+.chk .box::after { content: ''; width: 8px; height: 4px; border-left: 1.6px solid #fff; border-bottom: 1.6px solid #fff; transform: rotate(-45deg) translate(1px, -1px) scale(0); transition: transform .3s var(--spring); }
+.chk input:checked + .box { background: var(--color-accent-700); border-color: var(--color-accent-700); transform: scale(1.05); }
+.chk input:checked + .box::after { transform: rotate(-45deg) translate(1px, -1px) scale(1); }
+.chk input:focus-visible + .box { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.chk small { margin-left: auto; font-size: 12px; color: var(--color-faint); font-feature-settings: "tnum"; }
+.chk.is-zero { opacity: .45; }
+.chk-inline { height: 34px; padding: 0 12px; border: 1px solid var(--color-divider-strong); border-radius: 999px; }
+.chk-inline:hover { border-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 8%, transparent); }
+.pop-clear { border: 0; background: none; font-size: 12.5px; color: var(--color-accent-700); cursor: pointer; padding: 6px 10px; text-align: left; border-radius: 6px; }
+.pop-clear:hover { background: var(--color-accent-100); }
+.chips-active { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.chips-active:empty { display: none; }
+.chip-x { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 8px 0 11px; border-radius: 99px; border: 1px solid var(--color-accent-200); background: var(--color-accent-100); color: var(--color-accent-800); font-size: 12.5px; cursor: pointer; animation: popIn .3s var(--spring) both; transition: border-color .2s; }
+.chip-x:hover { border-color: var(--color-accent); }
+.chip-x svg.i { width: 12px; height: 12px; }
+.pub .cite { display: block; max-height: 0; overflow: hidden; opacity: 0; font-family: var(--font-body); font-weight: 400; font-size: 13.5px; line-height: 1.5; color: var(--color-muted); transition: max-height .5s var(--ease), opacity .35s, margin .45s var(--ease); }
+.view-cite .pub .cite { max-height: 8em; opacity: 1; margin-top: 4px; }
+.pub .cite strong { font-weight: 500; color: var(--color-text); }
+.pub .cite-v { font-style: italic; }
+.list.is-empty::after { content: 'No publications match these filters.'; display: block; padding: 22px 8px; font-style: italic; color: var(--color-muted); font-size: 14px; }
+.pub .ttl { display: block; }
 mark { background: var(--color-accent-100); color: var(--color-accent-800); border-radius: 2px; padding: 0 1px; }
 @media (max-width: 600px) { .pub .facts { padding-left: 8px; } }
 

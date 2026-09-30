@@ -99,34 +99,96 @@
     size(); new ResizeObserver(() => requestAnimationFrame(size)).observe(prof); frame();
   }
 
-  // publications filter + search
+  // publications: filters, views, citations
   const seg = $('#publications .seg');
   if (seg) {
-    const sthumb = $('.thumb', seg), q = $('#pub-search'), count = $('#pub-count');
+    const sthumb = $('.thumb', seg), q = $('#pub-search'), count = $('#pub-count'), list = $('#publications .list');
     const pubs = $$('#publications .row');
-    pubs.forEach((p) => { const t = $('.what', p); t.dataset.raw = t.innerHTML; });
-    let year = 'all';
-    const move = (b) => { sthumb.style.width = b.offsetWidth + 'px'; sthumb.style.transform = `translateX(${b.offsetLeft - 3}px)`; };
+    const vseg = $('.pub-view'), vthumb = $('.thumb', vseg);
+    const strip = (html) => { const d = document.createElement('div'); d.innerHTML = html; return d.textContent.replace(/\s+/g, ' ').trim(); };
+    pubs.forEach((p) => {
+      const t = $('.what', p); t.dataset.raw = t.innerHTML;
+      t.innerHTML = `<span class="ttl">${t.dataset.raw}</span>`;
+      const dds = $$('.facts dd', p), auth = dds[0].innerHTML, venue = dds[1].innerHTML;
+      const title = t.dataset.raw, doi = ($('.pub-actions a[href*="doi.org"]', p) || {}).href || '';
+      p.dataset.first = auth.trim().toLowerCase().startsWith('<strong') ? '1' : '0';
+      p.dataset.apa = strip(`${auth} ${title}. ${venue} ${doi}`);
+      const cite = document.createElement('span'); cite.className = 'cite';
+      cite.innerHTML = `<span class="cite-a">${auth}</span> <span class="cite-v">${venue}</span>`;
+      t.appendChild(cite);
+    });
+    const order = pubs.slice();
+    let year = 'all', newest = true;
+    const move = (th, b) => { th.style.width = b.offsetWidth + 'px'; th.style.transform = `translateX(${b.offsetLeft - 3}px)`; };
     const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const checked = (n) => $$(`input[name="${n}"]:checked`).map((i) => i.value);
+    const labelOf = (n, v) => $(`input[name="${n}"][value="${v}"]`).parentElement.childNodes[2].textContent.trim();
+    const matches = (p, skip) => {
+      const term = q.value.trim().toLowerCase(), vs = checked('venue'), ts = checked('type');
+      return (year === 'all' || p.dataset.year === year)
+        && (!term || p.textContent.toLowerCase().includes(term))
+        && (skip === 'venue' || !vs.length || vs.includes(p.dataset.venue))
+        && (skip === 'type' || !ts.length || ts.includes(p.dataset.type))
+        && (!$('#pub-first').checked || p.dataset.first === '1');
+    };
     const apply = () => {
       const term = q.value.trim(); let n = 0;
       pubs.forEach((p) => {
-        const ok = (year === 'all' || p.dataset.year === year) && p.textContent.toLowerCase().includes(term.toLowerCase());
+        const ok = matches(p);
         p.classList.toggle('is-hidden', !ok); if (ok) n++;
-        const t = $('.what', p);
-        t.innerHTML = term ? t.dataset.raw.replace(new RegExp(`(${esc(term)})(?![^<]*>)`, 'gi'), '<mark>$1</mark>') : t.dataset.raw;
+        const t = $('.what', p), tt = $('.ttl', p);
+        tt.innerHTML = term ? t.dataset.raw.replace(new RegExp(`(${esc(term)})(?![^<]*>)`, 'gi'), '<mark>$1</mark>') : t.dataset.raw;
       });
+      $$('[data-cnt]').forEach((el) => { const [k, v] = el.dataset.cnt.split(':'); const c = pubs.filter((p) => p.dataset[k] === v && matches(p, k)).length; el.textContent = c; el.parentElement.classList.toggle('is-zero', !c); });
+      ['venue', 'type'].forEach((k) => { const c = checked(k).length; $(`.pop-n[data-for="${k}"]`).textContent = c ? c : ''; });
+      const act = [...checked('venue').map((v) => ['venue', v]), ...checked('type').map((v) => ['type', v])];
+      if ($('#pub-first').checked) act.push(['first', 'First-authored']);
+      $('#pub-active').innerHTML = act.map(([k, v]) => `<button class="chip-x" data-k="${k}" data-v="${v}">${k === 'first' ? v : labelOf(k, v)}<svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>`).join('');
+      $('#pub-reset').hidden = !(act.length || term || year !== 'all');
       count.textContent = `${n} of ${pubs.length}`;
+      list.classList.toggle('is-empty', !n);
     };
     $$('button', seg).forEach((b) => b.addEventListener('click', () => {
-      $$('button', seg).forEach((x) => x.setAttribute('aria-pressed', x === b)); year = b.dataset.year; move(b); apply();
+      $$('button', seg).forEach((x) => x.setAttribute('aria-pressed', x === b)); year = b.dataset.year; move(sthumb, b); apply();
+    }));
+    $$('button', vseg).forEach((b) => b.addEventListener('click', () => {
+      $$('button', vseg).forEach((x) => x.setAttribute('aria-pressed', x === b)); move(vthumb, b);
+      list.classList.toggle('view-cite', b.dataset.view === 'cite');
     }));
     q.addEventListener('input', apply);
-    const ro = new ResizeObserver(() => requestAnimationFrame(() => move($('[aria-pressed="true"]', seg)))); ro.observe(seg);
+    $$('#publications input[type="checkbox"]').forEach((i) => i.addEventListener('change', apply));
+    $$('.pop-btn').forEach((b) => b.addEventListener('click', (ev) => {
+      ev.stopPropagation(); const m = $('#' + b.getAttribute('aria-controls')), open = m.hidden;
+      $$('.pop-menu').forEach((x) => { x.hidden = true; }); $$('.pop-btn').forEach((x) => x.setAttribute('aria-expanded', 'false'));
+      m.hidden = !open; b.setAttribute('aria-expanded', open);
+    }));
+    document.addEventListener('click', (ev) => { if (!ev.target.closest('.pop')) { $$('.pop-menu').forEach((x) => { x.hidden = true; }); $$('.pop-btn').forEach((x) => x.setAttribute('aria-expanded', 'false')); } });
+    document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') $$('.pop-menu').forEach((x) => { x.hidden = true; }); });
+    $$('[data-clear]').forEach((b) => b.addEventListener('click', () => { $$(`input[name="${b.dataset.clear}"]`).forEach((i) => { i.checked = false; }); apply(); }));
+    $('#pub-active').addEventListener('click', (ev) => {
+      const c = ev.target.closest('.chip-x'); if (!c) return;
+      if (c.dataset.k === 'first') $('#pub-first').checked = false; else $(`input[name="${c.dataset.k}"][value="${c.dataset.v}"]`).checked = false;
+      apply();
+    });
+    $('#pub-reset').addEventListener('click', () => {
+      $$('#publications input[type="checkbox"]').forEach((i) => { i.checked = false; }); q.value = '';
+      const all = $('[data-year="all"]', seg); $$('button', seg).forEach((x) => x.setAttribute('aria-pressed', x === all)); year = 'all'; move(sthumb, all); apply();
+    });
+    $('#pub-sort').addEventListener('click', () => {
+      newest = !newest; $('#pub-sort span').textContent = newest ? 'Newest first' : 'Oldest first';
+      (newest ? order : order.slice().reverse()).forEach((p) => list.appendChild(p));
+    });
+    $('#pub-copy-all').addEventListener('click', () => {
+      const shown = $$('#publications .row:not(.is-hidden)', list);
+      copyText(shown.map((p) => p.dataset.apa).join('\n\n'), `${shown.length} citation${shown.length === 1 ? '' : 's'} copied`);
+    });
+    const sync = () => requestAnimationFrame(() => { move(sthumb, $('[aria-pressed="true"]', seg)); move(vthumb, $('[aria-pressed="true"]', vseg)); });
+    addEventListener('resize', sync); document.fonts && document.fonts.ready.then(sync); sync();
     apply();
   }
 
   // copy
+  async function copyText(text, msg) { try { await navigator.clipboard.writeText(text); } catch (_) {} const t = $('.toast'); if (t) { t.textContent = msg; t.classList.add('show'); clearTimeout(copyText.t); copyText.t = setTimeout(() => t.classList.remove('show'), 1600); } }
   const toast = $('.toast');
   const flash = (m) => { toast.textContent = m; toast.classList.add('show'); clearTimeout(flash.t); flash.t = setTimeout(() => toast.classList.remove('show'), 1600); };
   $$('[data-copy]').forEach((b) => b.addEventListener('click', async (e) => {

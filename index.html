@@ -11,12 +11,12 @@
 <div class="app">
   <header class="top">
     <a class="id" href="#about">
-      <img src="profile.jpg" alt="">
+      <img src="../profile.jpg" alt="">
       <div><h1>Benjamin Lebrun</h1><p>PhD in Psychology, Neuropsychologist</p></div>
     </a>
     <button class="btn" data-palette aria-label="Search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search <kbd><span class="kbd-mod">&#8984;</span>K</kbd></button>
     <button class="btn" data-copy="benjamin.lebrun@pg.canterbury.ac.nz" data-msg="Email copied"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</button>
-    <a class="btn btn-accent" href="resume.pdf" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>Resume</a>
+    <a class="btn btn-accent" href="../resume.pdf" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>Resume</a>
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Sections">
@@ -37,7 +37,7 @@
       <div class="bento stagger">
         <div class="tile b-profile" data-go="education" tabindex="0">
           <canvas aria-hidden="true"></canvas>
-          <figure class="portrait" style="margin:18px 18px 0"><img src="profile.jpg" alt="Benjamin Lebrun portrait"></figure>
+          <figure class="portrait" style="margin:18px 18px 0"><img src="../profile.jpg" alt="Benjamin Lebrun portrait"></figure>
           <div class="txt">
             <span class="label">Profile <span class="go"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
             <h3>Benjamin Lebrun</h3>
@@ -207,10 +207,45 @@
           <button data-year="all" aria-pressed="true">All</button><button data-year="2026" aria-pressed="false">2026</button><button data-year="2025" aria-pressed="false">2025</button><button data-year="2024" aria-pressed="false">2024</button><button data-year="2023" aria-pressed="false">2023</button>
         </div>
         <input class="search" id="pub-search" type="search" placeholder="Search titles, authors, venues" aria-label="Search publications">
-        <span class="count" id="pub-count" aria-live="polite"></span>
+        <div class="seg pub-view" role="group" aria-label="Display">
+          <span class="thumb" aria-hidden="true"></span>
+          <button data-view="titles" aria-pressed="true">Titles</button><button data-view="cite" aria-pressed="false">Full citations</button>
+        </div>
       </div>
+      <div class="pub-tools pub-tools-2">
+        <div class="pop">
+          <button class="btn pop-btn" aria-expanded="false" aria-controls="pop-venue"><svg class="i" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg>Venue <span class="pop-n" data-for="venue"></span></button>
+          <div class="pop-menu" id="pop-venue" hidden>
+            <label class="chk"><input type="checkbox" name="venue" value="HRI"><span class="box" aria-hidden="true"></span>ACM/IEEE HRI<small data-cnt="venue:HRI"></small></label>
+            <label class="chk"><input type="checkbox" name="venue" value="IJSR"><span class="box" aria-hidden="true"></span>Int. J. of Social Robotics<small data-cnt="venue:IJSR"></small></label>
+            <label class="chk"><input type="checkbox" name="venue" value="Frontiers"><span class="box" aria-hidden="true"></span>Frontiers in Robotics & AI<small data-cnt="venue:Frontiers"></small></label>
+            <label class="chk"><input type="checkbox" name="venue" value="PLOS ONE"><span class="box" aria-hidden="true"></span>PLOS ONE<small data-cnt="venue:PLOS ONE"></small></label>
+            <label class="chk"><input type="checkbox" name="venue" value="Elsevier"><span class="box" aria-hidden="true"></span>Elsevier<small data-cnt="venue:Elsevier"></small></label>
+            <label class="chk"><input type="checkbox" name="venue" value="arXiv"><span class="box" aria-hidden="true"></span>arXiv<small data-cnt="venue:arXiv"></small></label>
+            <button class="pop-clear" data-clear="venue">Clear</button>
+          </div>
+        </div>
+        <div class="pop">
+          <button class="btn pop-btn" aria-expanded="false" aria-controls="pop-type"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>Type <span class="pop-n" data-for="type"></span></button>
+          <div class="pop-menu" id="pop-type" hidden>
+            <label class="chk"><input type="checkbox" name="type" value="Journal"><span class="box" aria-hidden="true"></span>Journal<small data-cnt="type:Journal"></small></label>
+            <label class="chk"><input type="checkbox" name="type" value="Conference"><span class="box" aria-hidden="true"></span>Conference<small data-cnt="type:Conference"></small></label>
+            <label class="chk"><input type="checkbox" name="type" value="Doctoral"><span class="box" aria-hidden="true"></span>Doctoral<small data-cnt="type:Doctoral"></small></label>
+            <label class="chk"><input type="checkbox" name="type" value="Workshop"><span class="box" aria-hidden="true"></span>Workshop<small data-cnt="type:Workshop"></small></label>
+            <label class="chk"><input type="checkbox" name="type" value="Chapter"><span class="box" aria-hidden="true"></span>Chapter<small data-cnt="type:Chapter"></small></label>
+            <label class="chk"><input type="checkbox" name="type" value="Preprint"><span class="box" aria-hidden="true"></span>Preprint<small data-cnt="type:Preprint"></small></label>
+            <button class="pop-clear" data-clear="type">Clear</button>
+          </div>
+        </div>
+        <label class="chk chk-inline"><input type="checkbox" id="pub-first"><span class="box" aria-hidden="true"></span>First-authored</label>
+        <button class="btn" id="pub-sort" aria-label="Sort order"><svg class="i" viewBox="0 0 24 24"><path d="M7 4v16M3 16l4 4 4-4M17 20V4M13 8l4-4 4 4"/></svg><span>Newest first</span></button>
+        <button class="btn" id="pub-copy-all"><svg class="i" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>Copy shown</button>
+        <span class="count" id="pub-count" aria-live="polite"></span>
+        <button class="pop-clear" id="pub-reset" hidden>Reset filters</button>
+      </div>
+      <div class="chips-active" id="pub-active"></div>
       <div class="list stagger">
-      <div class="row pub" id="pub-1" data-year="2026" data-idx="Too good to be true: People reject free gifts from robots because they infer bad intentions">
+      <div class="row pub" id="pub-1" data-venue="IJSR" data-type="Journal" data-year="2026" data-idx="Too good to be true: People reject free gifts from robots because they infer bad intentions">
         <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">Too good to be true: People reject free gifts from robots because they infer bad intentions</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="row-body"><div><dl class="facts">
           <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, Vonasch, A., &amp; Bartneck, C. (2026).</dd></div>
@@ -218,7 +253,7 @@
           <div class="pub-actions"><a class="btn" href="https://doi.org/10.1007/s12369-026-01395-x" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., Vonasch, A., &amp; Bartneck, C. (2026). Too good to be true: People reject free gifts from robots because they infer bad intentions. International Journal of Social Robotics, 18(5), 58. https://doi.org/10.1007/s12369-026-01395-x" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
         </dl></div></div>
       </div>
-      <div class="row pub" id="pub-2" data-year="2026" data-idx="Responsible Outcomes and Operational Tools for Sustainability in HRI (ROOTS&ndash;HRI)">
+      <div class="row pub" id="pub-2" data-venue="HRI" data-type="Workshop" data-year="2026" data-idx="Responsible Outcomes and Operational Tools for Sustainability in HRI (ROOTS&ndash;HRI)">
         <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">Responsible Outcomes and Operational Tools for Sustainability in HRI (ROOTS&ndash;HRI)</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="row-body"><div><dl class="facts">
           <div><dt>Authors</dt><dd>Parreira, M. T., et al. (2026).</dd></div>
@@ -226,7 +261,7 @@
           <div class="pub-actions"><a class="btn" href="https://doi.org/10.1145/3776734.3793850" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Parreira, M. T., et al. (2026). Responsible Outcomes and Operational Tools for Sustainability in HRI (ROOTS&ndash;HRI). Companion Proceedings of the 21st ACM/IEEE International Conference on Human&ndash;Robot Interaction (HRI Companion &rsquo;26), 1423&ndash;1425. https://doi.org/10.1145/3776734.3793850" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
         </dl></div></div>
       </div>
-      <div class="row pub" id="pub-3" data-year="2026" data-idx="The perception of phantom costs in HRI">
+      <div class="row pub" id="pub-3" data-venue="HRI" data-type="Doctoral" data-year="2026" data-idx="The perception of phantom costs in HRI">
         <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">The perception of phantom costs in HRI</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="row-body"><div><dl class="facts">
           <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong> (2026).</dd></div>
@@ -234,7 +269,7 @@
           <div class="pub-actions"><a class="btn" href="https://doi.org/10.1145/3776734.3794621" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B. (2026). The perception of phantom costs in HRI. Companion Proceedings of the 21st ACM/IEEE International Conference on Human&ndash;Robot Interaction (HRI Companion &rsquo;26), 1302&ndash;1304. https://doi.org/10.1145/3776734.3794621" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
         </dl></div></div>
       </div>
-      <div class="row pub" id="pub-4" data-year="2026" data-idx="The role of agent&rsquo;s anthropomorphism in shaping phantom costs">
+      <div class="row pub" id="pub-4" data-venue="HRI" data-type="Conference" data-year="2026" data-idx="The role of agent&rsquo;s anthropomorphism in shaping phantom costs">
         <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">The role of agent&rsquo;s anthropomorphism in shaping phantom costs</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="row-body"><div><dl class="facts">
           <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, Bartneck, C., &amp; Vonasch, A. J. (2026).</dd></div>
@@ -242,7 +277,7 @@
           <div class="pub-actions"><a class="btn" href="https://doi.org/10.1145/3757279.3788659" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., Bartneck, C., &amp; Vonasch, A. J. (2026). The role of agent&rsquo;s anthropomorphism in shaping phantom costs. Proceedings of the 21st ACM/IEEE International Conference on Human&ndash;Robot Interaction (HRI &rsquo;26), 963&ndash;971. https://doi.org/10.1145/3757279.3788659" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
         </dl></div></div>
       </div>
-      <div class="row pub" id="pub-5" data-year="2026" data-idx="Plausible explanations reduce phantom cost perception in HRI">
+      <div class="row pub" id="pub-5" data-venue="HRI" data-type="Conference" data-year="2026" data-idx="Plausible explanations reduce phantom cost perception in HRI">
         <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">Plausible explanations reduce phantom cost perception in HRI</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="row-body"><div><dl class="facts">
           <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, Bartneck, C., &amp; Vonasch, A. (2026).</dd></div>
@@ -250,7 +285,7 @@
           <div class="pub-actions"><a class="btn" href="https://doi.org/10.1145/3757279.3788804" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., Bartneck, C., &amp; Vonasch, A. (2026). Plausible explanations reduce phantom cost perception in HRI. Proceedings of the 21st ACM/IEEE International Conference on Human&ndash;Robot Interaction (HRI &rsquo;26), 1278&ndash;1282. https://doi.org/10.1145/3757279.3788804" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
         </dl></div></div>
       </div>
-      <div class="row pub" id="pub-6" data-year="2026" data-idx="The perception of phantom costs and personalized HRI">
+      <div class="row pub" id="pub-6" data-venue="Elsevier" data-type="Chapter" data-year="2026" data-idx="The perception of phantom costs and personalized HRI">
         <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">The perception of phantom costs and personalized HRI</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="row-body"><div><dl class="facts">
           <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, &amp; Vonasch, A. (2026).</dd></div>
@@ -258,7 +293,7 @@
           <div class="pub-actions"><a class="btn" href="https://doi.org/10.1016/B978-0-443-29266-8.00003-7" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., &amp; Vonasch, A. (2026). The perception of phantom costs and personalized HRI. Reference Module in Materials Science and Materials Engineering. Elsevier. https://doi.org/10.1016/B978-0-443-29266-8.00003-7" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
         </dl></div></div>
       </div>
-      <div class="row pub" id="pub-7" data-year="2025" data-idx="People perceive more phantom costs from autonomous agents when they make unreasonably generous offers">
+      <div class="row pub" id="pub-7" data-venue="arXiv" data-type="Preprint" data-year="2025" data-idx="People perceive more phantom costs from autonomous agents when they make unreasonably generous offers">
         <button class="row-btn" aria-expanded="false"><span class="when">2025</span><span class="what">People perceive more phantom costs from autonomous agents when they make unreasonably generous offers</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="row-body"><div><dl class="facts">
           <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, et al. (2025).</dd></div>
@@ -266,7 +301,7 @@
           <div class="pub-actions"><a class="btn" href="https://doi.org/10.48550/arXiv.2511.07401" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., et al. (2025). People perceive more phantom costs from autonomous agents when they make unreasonably generous offers. Preprint. arXiv. https://doi.org/10.48550/arXiv.2511.07401" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
         </dl></div></div>
       </div>
-      <div class="row pub" id="pub-8" data-year="2025" data-idx="Phantom costs in human&ndash;robot interaction: A replication study">
+      <div class="row pub" id="pub-8" data-venue="HRI" data-type="Conference" data-year="2025" data-idx="Phantom costs in human&ndash;robot interaction: A replication study">
         <button class="row-btn" aria-expanded="false"><span class="when">2025</span><span class="what">Phantom costs in human&ndash;robot interaction: A replication study</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="row-body"><div><dl class="facts">
           <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, Bartneck, C., &amp; Vonasch, A. (2025).</dd></div>
@@ -274,7 +309,7 @@
           <div class="pub-actions"><a class="btn" href="https://doi.org/10.1109/HRI61500.2025.10974228" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., Bartneck, C., &amp; Vonasch, A. (2025). Phantom costs in human&ndash;robot interaction: A replication study. Proceedings of the 2025 ACM/IEEE International Conference on Human-Robot Interaction (HRI &rsquo;25), Melbourne, Australia, 1037&ndash;1041. https://doi.org/10.1109/HRI61500.2025.10974228" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
         </dl></div></div>
       </div>
-      <div class="row pub" id="pub-9" data-year="2024" data-idx="Detecting the corruption of online questionnaires by artificial intelligence">
+      <div class="row pub" id="pub-9" data-venue="Frontiers" data-type="Journal" data-year="2024" data-idx="Detecting the corruption of online questionnaires by artificial intelligence">
         <button class="row-btn" aria-expanded="false"><span class="when">2024</span><span class="what">Detecting the corruption of online questionnaires by artificial intelligence</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="row-body"><div><dl class="facts">
           <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, Temtsin, S., Vonasch, A., &amp; Bartneck, C. (2024).</dd></div>
@@ -282,7 +317,7 @@
           <div class="pub-actions"><a class="btn" href="https://doi.org/10.3389/frobt.2023.1277635" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., Temtsin, S., Vonasch, A., &amp; Bartneck, C. (2024). Detecting the corruption of online questionnaires by artificial intelligence. Frontiers in Robotics and AI, 10. https://doi.org/10.3389/frobt.2023.1277635" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
         </dl></div></div>
       </div>
-      <div class="row pub" id="pub-10" data-year="2023" data-idx="Improving the acceptability of social robots: Make them look different from humans">
+      <div class="row pub" id="pub-10" data-venue="PLOS ONE" data-type="Journal" data-year="2023" data-idx="Improving the acceptability of social robots: Make them look different from humans">
         <button class="row-btn" aria-expanded="false"><span class="when">2023</span><span class="what">Improving the acceptability of social robots: Make them look different from humans</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="row-body"><div><dl class="facts">
           <div><dt>Authors</dt><dd>Nazir, T. A., <strong>Lebrun, B.</strong>, &amp; Li, B. (2023).</dd></div>
@@ -317,7 +352,7 @@
           <div class="viewer-links"><a data-v-open href="" target="_blank" rel="noopener">Open PDF</a><a data-v-dl href="" download>Download</a></div>
         </aside>
       </div>
-      <script type="application/json" id="poster-data">[{"k":"HRI26","t":"Plausibility of a robot's explanation shapes phantom costs","img":"Posters/SC_HRI26.pdf","pdf":"Posters/SC_HRI26.pdf"},{"k":"HRI25","t":"Phantom Costs in HRI: A Replication Study","img":"short_paper_hri25.png","pdf":"short_paper_hri25.pdf"},{"k":"Exhibit Your Thesis 2025","t":"Would you be suspicious of robots' generous behaviours?","img":"eyt_2025.png","pdf":"posters/eyt_2025.pdf"},{"k":"Exhibit Your Thesis 2024","t":"Epistemic Vigilance in HRI","img":"eyt_2024.png","pdf":"posters/eyt_2024.pdf"},{"k":"NZPsS 2024","t":"People reject free gifts from robots because they infer bad intentions","img":"nzpss_2024.png","pdf":"nzpss_2024.pdf"},{"k":"ESCoP & ESLP 2022","t":"Improving the Acceptability of Social Robots: Make Them Look Different From Humans","img":"escop_sobarag.png","pdf":"escop_sobarag.pdf"}]</script>
+      <script type="application/json" id="poster-data">[{"k":"HRI26","t":"Plausibility of a robot's explanation shapes phantom costs","img":"../posters/SC_HRI26.pdf","pdf":"../posters/SC_HRI26.pdf"},{"k":"HRI25","t":"Phantom Costs in HRI: A Replication Study","img":"../posters/short_paper_hri25.png","pdf":"../posters/short_paper_hri25.pdf"},{"k":"Exhibit Your Thesis 2025","t":"Would you be suspicious of robots' generous behaviours?","img":"../posters/eyt_2025.png","pdf":"../posters/eyt_2025.pdf"},{"k":"Exhibit Your Thesis 2024","t":"Epistemic Vigilance in HRI","img":"../posters/eyt_2024.png","pdf":"../posters/eyt_2024.pdf"},{"k":"NZPsS 2024","t":"People reject free gifts from robots because they infer bad intentions","img":"../posters/nzpss_2024.png","pdf":"../posters/nzpss_2024.pdf"},{"k":"ESCoP & ESLP 2022","t":"Improving the Acceptability of Social Robots: Make Them Look Different From Humans","img":"../posters/escop_sobarag.png","pdf":"../posters/escop_sobarag.pdf"}]</script>
     </section>
 
     <section class="panel" id="service" data-name="Service" aria-label="Service">
