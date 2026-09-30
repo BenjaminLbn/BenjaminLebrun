@@ -225,8 +225,8 @@ mark { background: var(--color-accent-100); color: var(--color-accent-800); bord
 .talk .row-btn { cursor: default; grid-template-columns: 96px minmax(0, 1fr); }
 .talk .desc { display: block; font-family: var(--font-body); font-size: 13.5px; color: var(--color-muted); font-weight: 400; margin-top: 3px; line-height: 1.5; }
 .viewer { padding: 14px; display: grid; gap: 12px; position: sticky; top: 16px; }
-.stage { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-md); overflow: hidden; background: var(--color-surface); border: 5px solid var(--color-surface); outline: 1px solid var(--color-divider); cursor: zoom-in; }
-.stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; filter: sepia(.08) saturate(.92); transition: opacity .45s var(--ease), transform .8s var(--ease); }
+.stage { position: relative; aspect-ratio: 594 / 841; width: min(100%, calc((100vh - 230px) * 594 / 841)); justify-self: center; border-radius: var(--radius-md); overflow: hidden; background: var(--color-surface); border: 5px solid var(--color-surface); outline: 1px solid var(--color-divider); cursor: zoom-in; }
+.stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; filter: sepia(.08) saturate(.92); transition: opacity .45s var(--ease), transform .8s var(--ease); }
 .stage img.out { opacity: 0; transform: scale(1.03); }
 .stage:hover img { transform: scale(1.03); }
 .stage::after { content: 'Preview in PDF'; position: absolute; inset: 0; display: grid; place-items: center; font-style: italic; color: var(--color-faint); font-size: 14px; opacity: 0; transition: opacity .3s; }
