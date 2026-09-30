@@ -3,33 +3,429 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home | Benjamin Lebrun</title>
+  <title>Benjamin Lebrun</title>
+  <meta name="description" content="Benjamin Lebrun — PhD in Psychology, Neuropsychologist. Research on mind perception in robots and phantom costs in human–robot interaction.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Benjamin Lebrun</h1>
-    <p>PhD in Psychology, Neuropsychologist</p>
-    <nav>
-      <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="presentations.html">Presentations</a></li>
-        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-        <li><a href="awards.html">Awards</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+<div class="app">
+  <header class="top">
+    <a class="id" href="#about">
+      <img src="profile.jpg" alt="">
+      <div><h1>Benjamin Lebrun</h1><p>PhD in Psychology, Neuropsychologist</p></div>
+    </a>
+    <button class="btn" data-palette aria-label="Search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search <kbd><span class="kbd-mod">&#8984;</span>K</kbd></button>
+    <button class="btn" data-copy="benjamin.lebrun@pg.canterbury.ac.nz" data-msg="Email copied"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</button>
+    <a class="btn btn-accent" href="resume.pdf" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>Resume</a>
   </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <span class="thumb" aria-hidden="true"></span>
+    <a href="#about" role="tab" aria-selected="false">About</a>
+    <a href="#education" role="tab" aria-selected="false">Education</a>
+    <a href="#experience" role="tab" aria-selected="false">Experience</a>
+    <a href="#publications" role="tab" aria-selected="false">Publications</a>
+    <a href="#presentations" role="tab" aria-selected="false">Presentations</a>
+    <a href="#service" role="tab" aria-selected="false">Service</a>
+    <a href="#awards" role="tab" aria-selected="false">Awards</a>
+    <a href="#skills" role="tab" aria-selected="false">Skills</a>
+    <a href="#contact" role="tab" aria-selected="false">Contact</a>
+  </nav>
+
   <main>
-    <div class="hero">
-      <img class="plate" src="profile.jpg" alt="Benjamin Lebrun portrait">
-      <h2>Welcome</h2>
-      <p>Human&ndash;Robot Interaction &bull; Neuropsychology &bull; Cognitive Psychology &bull; Neuroscience</p>
-    </div>
+    <section class="panel" id="about" data-name="About" aria-label="About">
+      <div class="bento stagger">
+        <div class="tile b-profile" data-go="education" tabindex="0">
+          <canvas aria-hidden="true"></canvas>
+          <figure class="portrait" style="margin:18px 18px 0"><img src="profile.jpg" alt="Benjamin Lebrun portrait"></figure>
+          <div class="txt">
+            <span class="label">Profile <span class="go"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+            <h3>Benjamin Lebrun</h3>
+            <span class="meta">PhD in Psychology &middot; Neuropsychologist</span>
+            <span class="foot">University of Canterbury &middot; New Zealand</span>
+          </div>
+        </div>
+
+        <div class="tile b-about" style="cursor:default">
+          <span class="label">About</span>
+          <h3 style="font-size:26px">I explore <em style="color:var(--color-accent-700)">mind perception</em> in robots.</h3>
+          <p>I am a French neuropsychologist with a PhD in psychology. I study how people <span class="hl">perceive, judge and interact with social robots</span> and other artificial agents. My work draws on cognitive and social psychology and on <span class="hl d2">my clinical background in neuropsychology</span>, and I aim to bring these fields closer together in my research.</p>
+        </div>
+
+        <div class="tile" style="cursor:default">
+          <span class="label">Research</span>
+          <ul class="fields">
+            <li>Human&ndash;Robot Interaction</li>
+            <li>Neuropsychology</li>
+            <li>Cognitive Psychology</li>
+            <li>Neuroscience</li>
+          </ul>
+        </div>
+
+        <div class="tile b-mind" id="gift">
+          <div class="scene">
+            <span class="label">Try it &middot; illustrative scenario</span>
+            <div class="bubble-row">
+              <span class="bot" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" style="width:22px;height:22px"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></span>
+              <p class="bubble" aria-live="polite"><span class="say"></span><span class="why"></span></p>
+            </div>
+            <div class="ctrls">
+              <div class="ctrl"><span class="ctrl-l">Offer</span>
+                <div class="seg gift-seg" role="group" aria-label="Offer amount"><span class="thumb" aria-hidden="true"></span><button data-amt="1" aria-pressed="false">$1</button><button data-amt="20" aria-pressed="true">$20</button></div>
+              </div>
+              <label class="ctrl switch"><span class="ctrl-l">Robot explains why</span><input type="checkbox" id="explain"><span class="sw" aria-hidden="true"></span></label>
+            </div>
+            <div class="choice"><button class="btn btn-accent" data-choice="accept">Accept</button><button class="btn" data-choice="decline">Decline</button></div>
+          </div>
+          <div class="mind-side">
+            <span class="label">Phantom costs</span>
+            <h3>Would you take a free gift from a <em>robot</em>?</h3>
+            <figure class="pc-chart" aria-label="Illustrative chart: perceived phantom costs rise with generosity and fall with an explanation">
+              <svg viewBox="0 0 300 118" role="img">
+                <line class="pc-grid" x1="30" y1="14" x2="30" y2="96"></line>
+                <line class="pc-grid" x1="200" y1="14" x2="200" y2="96"></line>
+                <line class="pc-axis" x1="30" y1="96" x2="200" y2="96"></line>
+                <path class="pc-area" d="M30 78 C 100 76, 140 50, 200 22 L 200 64 C 140 76, 100 85, 30 86 Z"></path>
+                <path class="pc-line" pathLength="1" d="M30 78 C 100 76, 140 50, 200 22"></path>
+                <path class="pc-line pc-dash" pathLength="1" d="M30 86 C 100 85, 140 76, 200 64"></path>
+                <text class="pc-lab" x="208" y="25">No reason</text>
+                <text class="pc-lab" x="208" y="67">Explained</text>
+                <text class="pc-tick" x="30" y="112">$1</text>
+                <text class="pc-tick" x="200" y="112">$20</text>
+                <g class="pc-dot"><circle class="pc-halo" r="9"></circle><circle r="4.5"></circle></g>
+              </svg>
+              <figcaption class="pc-y">Perceived phantom costs &middot; illustrative</figcaption>
+            </figure>
+            <div class="result">
+              <p class="mind-note">A phantom cost is a hidden catch people suspect when an offer seems too good to be true. Choose an offer, then decide.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tile" data-go="experience" tabindex="0">
+          <span class="label">Most recent role <span class="go"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+          <h3>Neuropsychologist</h3>
+          <span class="meta">Memory Clinic, Hospital of B&eacute;thune-Beuvry</span>
+          <span class="foot">Mar&ndash;Aug 2026</span>
+        </div>
+
+        <div class="tile b-pub" data-go="publications" tabindex="0">
+          <span class="label">Latest publication <span class="go"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+          <h3>Too good to be true: People reject free gifts from robots because they infer bad intentions</h3>
+          <span class="meta">International Journal of Social Robotics, 2026</span>
+          <span class="foot">10 publications &middot; 2023&ndash;2026</span>
+        </div>
+
+        <div class="tile" data-go="education" tabindex="0">
+          <span class="label">Education <span class="go"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+          <h3>PhD in Psychology</h3>
+          <span class="meta">University of Canterbury</span>
+          <span class="foot">Conferred 25 June 2026</span>
+        </div>
+
+        <div class="tile" data-go="service" tabindex="0">
+          <span class="label">Service <span class="go"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+          <h3>Pioneer General Chair</h3>
+          <span class="meta">HRI 2027, Silicon Valley</span>
+          <span class="foot">Reviewer for HRI, HAI, IJSR, THRI</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="education" data-name="Education" aria-label="Education">
+      <div class="panel-head"><h2>Education</h2><span class="sub">Select a row for details</span></div>
+      <div class="list stagger">
+      <div class="row" id="edu-1" data-idx="PhD in Psychology">
+        <button class="row-btn" aria-expanded="false"><span class="when">2023&ndash;2026</span><span class="what">PhD in Psychology<span class="where">University of Canterbury &middot; New Zealand</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Supervisors</dt><dd>Andrew Vonasch &middot; Christoph Bartneck</dd></div><div><dt>Project</dt><dd>The Perception of Phantom Costs in HRI</dd></div><div><dt>Defence</dt><dd>20 May 2026</dd></div><div><dt>Conferred</dt><dd>25 June 2026</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="edu-2" data-idx="Master of Integrated Psychology">
+        <button class="row-btn" aria-expanded="false"><span class="when">2020&ndash;2022</span><span class="what">Master of Integrated Psychology<span class="where">University of Minho &middot; Portugal</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>GPA</dt><dd>4.0/4.0 (or 9.0/9.0)</dd></div><div><dt>Project</dt><dd>Perceiving Social Beings in Artificial Agents</dd></div><div><dt>Supervisors</dt><dd>Tatjana Nazir &middot; Adriana Sampaio</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="edu-3" data-idx="Master of Psychology of Neurocognitive Processes and Affective Sciences">
+        <button class="row-btn" aria-expanded="false"><span class="when">2020&ndash;2022</span><span class="what">Master of Psychology of Neurocognitive Processes and Affective Sciences<span class="where">University of Lille &middot; France</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>GPA</dt><dd>3.85/4.0 (or 8.43/9.0)</dd></div><div><dt>Project</dt><dd>Perceiving Social Beings in Artificial Agents</dd></div><div><dt>Supervisor</dt><dd>Tatjana Nazir</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="edu-4" data-idx="Bachelor of Psychology">
+        <button class="row-btn" aria-expanded="false"><span class="when">2018&ndash;2020</span><span class="what">Bachelor of Psychology<span class="where">University of Lille &middot; France</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Honours</dt><dd>Highest honours</dd></div><div><dt>Supervisor</dt><dd>Loris Schiaratura</dd></div><div><dt>Project</dt><dd>Emotional Facial Micro-Expressions in Alzheimer&rsquo;s Disease</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="edu-5" data-idx="School of Medicine">
+        <button class="row-btn" aria-expanded="false"><span class="when">2016&ndash;2018</span><span class="what">School of Medicine<span class="where">University of Lille &middot; France</span></span></button>
+      </div>
+      </div>
+    </section>
+
+    <section class="panel" id="experience" data-name="Experience" aria-label="Experience">
+      <div class="panel-head"><h2>Experience</h2><span class="sub">Select a row for details</span></div>
+      <div class="cols">
+        <div><h3 class="col-title">Academic</h3><div class="list stagger">
+      <div class="row" id="aca-1" data-idx="Teaching Assistant in Psychology">
+        <button class="row-btn" aria-expanded="false"><span class="when">2023&ndash;2025</span><span class="what">Teaching Assistant in Psychology<span class="where">University of Canterbury &middot; Christchurch, New Zealand</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Courses</dt><dd>Cognition (200-level, 2023&ndash;2025)<br>Introductory Cognitive and Behavioural Neuroscience (200-level, 2024)<br>Neuroscience and Neurological Disorders (300-level, 2025)</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="aca-2" data-idx="Research Internship">
+        <button class="row-btn" aria-expanded="false"><span class="when">Aug&ndash;Sep 2022</span><span class="what">Research Internship<span class="where">Neuropsychophysiology Lab &middot; University of Minho &middot; Portugal</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Project</dt><dd>SOBARAG (social dominance and social hierarchy toward robots)</dd></div><div><dt>Focus</dt><dd>Study design and experimental planning</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="aca-3" data-idx="Research Engineer">
+        <button class="row-btn" aria-expanded="false"><span class="when">2021&ndash;2022</span><span class="what">Research Engineer<span class="where">SCALab &middot; Lille &middot; France</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Project</dt><dd>SOBARAG</dd></div><div><dt>Responsibilities</dt><dd>Study design and research support</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="aca-4" data-idx="Research Internship">
+        <button class="row-btn" aria-expanded="false"><span class="when">2021&ndash;2022</span><span class="what">Research Internship<span class="where">SCALab &middot; Lille &middot; France</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Project</dt><dd>Physiological variations during observation of different types of gestures</dd></div><div><dt>Responsibilities</dt><dd>Experimental setup &middot; Physiological data collection (BIOPAC) &middot; Eye tracking (EYELINK)</dd></div></dl></div></div>
+      </div>
+        </div></div>
+        <div><h3 class="col-title">Clinical</h3><div class="list stagger">
+      <div class="row" id="cli-1" data-idx="Neuropsychologist">
+        <button class="row-btn" aria-expanded="false"><span class="when">Mar&ndash;Aug 2026</span><span class="what">Neuropsychologist<span class="where">Memory Clinic, Hospital of B&eacute;thune-Beuvry &middot; B&eacute;thune, France</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Clinical focus</dt><dd>Cognitive and neuropsychological assessments with adult populations; geriatrics and neurology; assessments in the context of research programmes</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="cli-2" data-idx="Neuropsychologist">
+        <button class="row-btn" aria-expanded="false"><span class="when">Sep&ndash;Oct 2022</span><span class="what">Neuropsychologist<span class="where">Nursing Home &middot; Hospital of Boulogne-sur-Mer &middot; France</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Clinical focus</dt><dd>Neuropsychological assessments (geriatric population)</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="cli-3" data-idx="Clinical Internship">
+        <button class="row-btn" aria-expanded="false"><span class="when">2021&ndash;2022</span><span class="what">Clinical Internship<span class="where">Department of Pediatric Oncology &middot; Gustave Roussy Institute &middot; Villejuif, France</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Clinical focus</dt><dd>Neuropsychological assessments with young patients with brain tumors</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="cli-4" data-idx="Clinical Internship">
+        <button class="row-btn" aria-expanded="false"><span class="when">2021&ndash;2022</span><span class="what">Clinical Internship<span class="where">Memory Consultations &middot; Hospital of Douai &middot; France</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Clinical focus</dt><dd>Neuropsychological assessments (geriatric population)</dd></div></dl></div></div>
+      </div>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="panel" id="publications" data-name="Publications" aria-label="Publications">
+      <div class="panel-head"><h2>Publications</h2></div>
+      <div class="pub-tools">
+        <div class="seg" role="group" aria-label="Filter by year">
+          <span class="thumb" aria-hidden="true"></span>
+          <button data-year="all" aria-pressed="true">All</button><button data-year="2026" aria-pressed="false">2026</button><button data-year="2025" aria-pressed="false">2025</button><button data-year="2024" aria-pressed="false">2024</button><button data-year="2023" aria-pressed="false">2023</button>
+        </div>
+        <input class="search" id="pub-search" type="search" placeholder="Search titles, authors, venues" aria-label="Search publications">
+        <span class="count" id="pub-count" aria-live="polite"></span>
+      </div>
+      <div class="list stagger">
+      <div class="row pub" id="pub-1" data-year="2026" data-idx="Too good to be true: People reject free gifts from robots because they infer bad intentions">
+        <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">Too good to be true: People reject free gifts from robots because they infer bad intentions</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts">
+          <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, Vonasch, A., &amp; Bartneck, C. (2026).</dd></div>
+          <div><dt>Published in</dt><dd><em>International Journal of Social Robotics</em>, 18(5), 58.</dd></div>
+          <div class="pub-actions"><a class="btn" href="https://doi.org/10.1007/s12369-026-01395-x" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., Vonasch, A., &amp; Bartneck, C. (2026). Too good to be true: People reject free gifts from robots because they infer bad intentions. International Journal of Social Robotics, 18(5), 58. https://doi.org/10.1007/s12369-026-01395-x" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
+        </dl></div></div>
+      </div>
+      <div class="row pub" id="pub-2" data-year="2026" data-idx="Responsible Outcomes and Operational Tools for Sustainability in HRI (ROOTS&ndash;HRI)">
+        <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">Responsible Outcomes and Operational Tools for Sustainability in HRI (ROOTS&ndash;HRI)</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts">
+          <div><dt>Authors</dt><dd>Parreira, M. T., et al. (2026).</dd></div>
+          <div><dt>Published in</dt><dd>Companion Proceedings of the 21st ACM/IEEE International Conference on Human&ndash;Robot Interaction (HRI Companion &rsquo;26), 1423&ndash;1425.</dd></div>
+          <div class="pub-actions"><a class="btn" href="https://doi.org/10.1145/3776734.3793850" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Parreira, M. T., et al. (2026). Responsible Outcomes and Operational Tools for Sustainability in HRI (ROOTS&ndash;HRI). Companion Proceedings of the 21st ACM/IEEE International Conference on Human&ndash;Robot Interaction (HRI Companion &rsquo;26), 1423&ndash;1425. https://doi.org/10.1145/3776734.3793850" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
+        </dl></div></div>
+      </div>
+      <div class="row pub" id="pub-3" data-year="2026" data-idx="The perception of phantom costs in HRI">
+        <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">The perception of phantom costs in HRI</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts">
+          <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong> (2026).</dd></div>
+          <div><dt>Published in</dt><dd>Companion Proceedings of the 21st ACM/IEEE International Conference on Human&ndash;Robot Interaction (HRI Companion &rsquo;26), 1302&ndash;1304.</dd></div>
+          <div class="pub-actions"><a class="btn" href="https://doi.org/10.1145/3776734.3794621" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B. (2026). The perception of phantom costs in HRI. Companion Proceedings of the 21st ACM/IEEE International Conference on Human&ndash;Robot Interaction (HRI Companion &rsquo;26), 1302&ndash;1304. https://doi.org/10.1145/3776734.3794621" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
+        </dl></div></div>
+      </div>
+      <div class="row pub" id="pub-4" data-year="2026" data-idx="The role of agent&rsquo;s anthropomorphism in shaping phantom costs">
+        <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">The role of agent&rsquo;s anthropomorphism in shaping phantom costs</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts">
+          <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, Bartneck, C., &amp; Vonasch, A. J. (2026).</dd></div>
+          <div><dt>Published in</dt><dd>Proceedings of the 21st ACM/IEEE International Conference on Human&ndash;Robot Interaction (HRI &rsquo;26), 963&ndash;971.</dd></div>
+          <div class="pub-actions"><a class="btn" href="https://doi.org/10.1145/3757279.3788659" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., Bartneck, C., &amp; Vonasch, A. J. (2026). The role of agent&rsquo;s anthropomorphism in shaping phantom costs. Proceedings of the 21st ACM/IEEE International Conference on Human&ndash;Robot Interaction (HRI &rsquo;26), 963&ndash;971. https://doi.org/10.1145/3757279.3788659" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
+        </dl></div></div>
+      </div>
+      <div class="row pub" id="pub-5" data-year="2026" data-idx="Plausible explanations reduce phantom cost perception in HRI">
+        <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">Plausible explanations reduce phantom cost perception in HRI</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts">
+          <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, Bartneck, C., &amp; Vonasch, A. (2026).</dd></div>
+          <div><dt>Published in</dt><dd>Proceedings of the 21st ACM/IEEE International Conference on Human&ndash;Robot Interaction (HRI &rsquo;26), 1278&ndash;1282.</dd></div>
+          <div class="pub-actions"><a class="btn" href="https://doi.org/10.1145/3757279.3788804" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., Bartneck, C., &amp; Vonasch, A. (2026). Plausible explanations reduce phantom cost perception in HRI. Proceedings of the 21st ACM/IEEE International Conference on Human&ndash;Robot Interaction (HRI &rsquo;26), 1278&ndash;1282. https://doi.org/10.1145/3757279.3788804" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
+        </dl></div></div>
+      </div>
+      <div class="row pub" id="pub-6" data-year="2026" data-idx="The perception of phantom costs and personalized HRI">
+        <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">The perception of phantom costs and personalized HRI</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts">
+          <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, &amp; Vonasch, A. (2026).</dd></div>
+          <div><dt>Published in</dt><dd>Reference Module in Materials Science and Materials Engineering. Elsevier.</dd></div>
+          <div class="pub-actions"><a class="btn" href="https://doi.org/10.1016/B978-0-443-29266-8.00003-7" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., &amp; Vonasch, A. (2026). The perception of phantom costs and personalized HRI. Reference Module in Materials Science and Materials Engineering. Elsevier. https://doi.org/10.1016/B978-0-443-29266-8.00003-7" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
+        </dl></div></div>
+      </div>
+      <div class="row pub" id="pub-7" data-year="2025" data-idx="People perceive more phantom costs from autonomous agents when they make unreasonably generous offers">
+        <button class="row-btn" aria-expanded="false"><span class="when">2025</span><span class="what">People perceive more phantom costs from autonomous agents when they make unreasonably generous offers</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts">
+          <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, et al. (2025).</dd></div>
+          <div><dt>Published in</dt><dd>Preprint. <em>arXiv</em>.</dd></div>
+          <div class="pub-actions"><a class="btn" href="https://doi.org/10.48550/arXiv.2511.07401" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., et al. (2025). People perceive more phantom costs from autonomous agents when they make unreasonably generous offers. Preprint. arXiv. https://doi.org/10.48550/arXiv.2511.07401" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
+        </dl></div></div>
+      </div>
+      <div class="row pub" id="pub-8" data-year="2025" data-idx="Phantom costs in human&ndash;robot interaction: A replication study">
+        <button class="row-btn" aria-expanded="false"><span class="when">2025</span><span class="what">Phantom costs in human&ndash;robot interaction: A replication study</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts">
+          <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, Bartneck, C., &amp; Vonasch, A. (2025).</dd></div>
+          <div><dt>Published in</dt><dd>Proceedings of the 2025 ACM/IEEE International Conference on Human-Robot Interaction (HRI &rsquo;25), Melbourne, Australia, 1037&ndash;1041.</dd></div>
+          <div class="pub-actions"><a class="btn" href="https://doi.org/10.1109/HRI61500.2025.10974228" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., Bartneck, C., &amp; Vonasch, A. (2025). Phantom costs in human&ndash;robot interaction: A replication study. Proceedings of the 2025 ACM/IEEE International Conference on Human-Robot Interaction (HRI &rsquo;25), Melbourne, Australia, 1037&ndash;1041. https://doi.org/10.1109/HRI61500.2025.10974228" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
+        </dl></div></div>
+      </div>
+      <div class="row pub" id="pub-9" data-year="2024" data-idx="Detecting the corruption of online questionnaires by artificial intelligence">
+        <button class="row-btn" aria-expanded="false"><span class="when">2024</span><span class="what">Detecting the corruption of online questionnaires by artificial intelligence</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts">
+          <div><dt>Authors</dt><dd><strong>Lebrun, B.</strong>, Temtsin, S., Vonasch, A., &amp; Bartneck, C. (2024).</dd></div>
+          <div><dt>Published in</dt><dd><em>Frontiers in Robotics and AI</em>, 10.</dd></div>
+          <div class="pub-actions"><a class="btn" href="https://doi.org/10.3389/frobt.2023.1277635" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Lebrun, B., Temtsin, S., Vonasch, A., &amp; Bartneck, C. (2024). Detecting the corruption of online questionnaires by artificial intelligence. Frontiers in Robotics and AI, 10. https://doi.org/10.3389/frobt.2023.1277635" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
+        </dl></div></div>
+      </div>
+      <div class="row pub" id="pub-10" data-year="2023" data-idx="Improving the acceptability of social robots: Make them look different from humans">
+        <button class="row-btn" aria-expanded="false"><span class="when">2023</span><span class="what">Improving the acceptability of social robots: Make them look different from humans</span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts">
+          <div><dt>Authors</dt><dd>Nazir, T. A., <strong>Lebrun, B.</strong>, &amp; Li, B. (2023).</dd></div>
+          <div><dt>Published in</dt><dd><em>PLOS ONE</em>, 18(11), e0287507.</dd></div>
+          <div class="pub-actions"><a class="btn" href="https://doi.org/10.1371/journal.pone.0287507" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>DOI</a><button class="btn" data-copy="Nazir, T. A., Lebrun, B., &amp; Li, B. (2023). Improving the acceptability of social robots: Make them look different from humans. PLOS ONE, 18(11), e0287507. https://doi.org/10.1371/journal.pone.0287507" data-msg="Citation copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy citation</button></div>
+        </dl></div></div>
+      </div>
+      </div>
+    </section>
+
+    <section class="panel" id="presentations" data-name="Presentations" aria-label="Presentations">
+      <div class="panel-head"><h2>Presentations &amp; Conferences</h2></div>
+      <div class="split">
+        <div class="list stagger">
+          <div class="row talk" id="talk-1" data-idx="Internet Technology and Data Science Lab AIRO, University of Ghent"><div class="row-btn"><span class="when">June 2026</span><span class="what">Internet Technology and Data Science Lab AIRO, University of Ghent<span class="where">Ghent, Belgium</span><span class="desc">Talk on the perception of phantom costs in HRI.</span></span></div></div>
+          <div class="row talk" id="talk-2" data-idx="Symposium for Young Researchers in Cognitive Science"><div class="row-btn"><span class="when">May 2026</span><span class="what">Symposium for Young Researchers in Cognitive Science<span class="where">Lille, France</span><span class="desc">Talk on the role of agent&rsquo;s anthropomorphism in shaping phantom costs.</span></span></div></div>
+          <div class="row talk" id="talk-3" data-idx="HRI 2026 Conference"><div class="row-btn"><span class="when">March 2026</span><span class="what">HRI 2026 Conference<span class="where">Edinburgh, UK</span><span class="desc">1-minute video, poster, and talk on the perception of phantom costs in HRI; talk on the role of agent&rsquo;s anthropomorphism; poster on plausible explanations reducing phantom cost perception.</span></span></div></div>
+          <div class="row talk" id="talk-4" data-idx="Postgraduate Conference 2025 &ndash; CSSE Department"><div class="row-btn"><span class="when">Sep 2025</span><span class="what">Postgraduate Conference 2025 &ndash; CSSE Department<span class="where">Christchurch, NZ</span><span class="desc">Talk on phantom costs perception in HRI.</span></span></div></div>
+          <div class="row talk" id="talk-5" data-idx="HRI 2025 Conference"><div class="row-btn"><span class="when">March 2025</span><span class="what">HRI 2025 Conference<span class="where">Melbourne, Australia</span><span class="desc">Short talk and poster on phantom costs in HRI: A replication study.</span></span></div></div>
+          <div class="row talk" id="talk-6" data-idx="New Zealand Psychological Society Conference"><div class="row-btn"><span class="when">Sep 2024</span><span class="what">New Zealand Psychological Society Conference<span class="where">Christchurch, NZ</span><span class="desc">Poster on skepticism about robots&rsquo; implausible statements.</span></span></div></div>
+          <div class="row talk" id="talk-7" data-idx="Exhibit Your Thesis &ndash; University of Canterbury"><div class="row-btn"><span class="when">Aug 2024</span><span class="what">Exhibit Your Thesis &ndash; University of Canterbury<span class="where">Christchurch, NZ</span><span class="desc">Poster on epistemic vigilance in HRI.</span></span></div></div>
+          <div class="row talk" id="talk-8" data-idx="ESCoP 2022"><div class="row-btn"><span class="when">Aug 2022</span><span class="what">ESCoP 2022<span class="where">Lille, France</span><span class="desc">Poster on improving the acceptability of social robots.</span></span></div></div>
+          <div class="row talk" id="talk-9" data-idx="ESLP 2022"><div class="row-btn"><span class="when">Aug 2022</span><span class="what">ESLP 2022<span class="where">Lille, France</span><span class="desc">Poster on improving the acceptability of social robots.</span></span></div></div>
+        </div>
+        <aside class="box viewer" aria-label="Posters">
+          <div class="stage" role="button" tabindex="0" aria-label="Enlarge poster"><img alt=""><span class="zoom"><svg class="i" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></div>
+          <div class="viewer-cap">
+            <div><span class="k"></span><h3></h3></div>
+            <div class="viewer-nav"><button class="icon-btn" data-v-prev aria-label="Previous poster"><svg class="i" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button class="icon-btn" data-v-next aria-label="Next poster"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          </div>
+          <div class="dots"></div>
+          <div class="viewer-links"><a data-v-open href="" target="_blank" rel="noopener">Open PDF</a><a data-v-dl href="" download>Download</a></div>
+        </aside>
+      </div>
+      <script type="application/json" id="poster-data">[{"k":"HRI26","t":"Plausibility of a robot's explanation shapes phantom costs","img":"Posters/SC_HRI26.pdf","pdf":"Posters/SC_HRI26.pdf"},{"k":"HRI25","t":"Phantom Costs in HRI: A Replication Study","img":"short_paper_hri25.png","pdf":"short_paper_hri25.pdf"},{"k":"Exhibit Your Thesis 2025","t":"Would you be suspicious of robots' generous behaviours?","img":"eyt_2025.png","pdf":"posters/eyt_2025.pdf"},{"k":"Exhibit Your Thesis 2024","t":"Epistemic Vigilance in HRI","img":"eyt_2024.png","pdf":"posters/eyt_2024.pdf"},{"k":"NZPsS 2024","t":"People reject free gifts from robots because they infer bad intentions","img":"nzpss_2024.png","pdf":"nzpss_2024.pdf"},{"k":"ESCoP & ESLP 2022","t":"Improving the Acceptability of Social Robots: Make Them Look Different From Humans","img":"escop_sobarag.png","pdf":"escop_sobarag.pdf"}]</script>
+    </section>
+
+    <section class="panel" id="service" data-name="Service" aria-label="Service">
+      <div class="panel-head"><h2>Service to the Community</h2><span class="sub">Select a row for details</span></div>
+      <div class="list stagger">
+      <div class="row" id="svc-1" data-idx="Conference Organisation">
+        <button class="row-btn" aria-expanded="false"><span class="when">2022&ndash;2027</span><span class="what">Conference Organisation<span class="where">Human&ndash;Robot Interaction and related venues</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Roles</dt><dd>Pioneer General Chair (HRI 2027, Silicon Valley)<br>Student Volunteer (HRI 2026, Edinburgh)<br>Student Volunteer Chair (HRI 2025, Melbourne)<br>Student Volunteer Chair (HRI 2024, Denver)</dd></div><div><dt>Additional</dt><dd>Support Staff (ESLP 2022, Lille)</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="svc-2" data-idx="Workshops &amp; Tutorials">
+        <button class="row-btn" aria-expanded="false"><span class="when">2026</span><span class="what">Workshops &amp; Tutorials<span class="where">HRI 2026 &middot; Edinburgh, UK</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Pioneer Workshop</dt><dd>HRI 2026 Pioneer</dd></div><div><dt>Workshop</dt><dd>&ldquo;Responsible Outcomes and Operational Tools for Sustainability in HRI&rdquo;</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="svc-3" data-idx="Peer Reviewing">
+        <button class="row-btn" aria-expanded="false"><span class="when">Ongoing</span><span class="what">Peer Reviewing<span class="where">Conferences and journals</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>HRI</dt><dd>7 reviews + 5x 1AC</dd></div><div><dt>HAI</dt><dd>5 reviews + 1x 1AC</dd></div><div><dt>Journals</dt><dd><em>International Journal of Social Robotics</em> (4 reviews) &middot; <em>ACM Transactions on Human-Robot Interaction</em> (1 review)</dd></div><div><dt>Other venues</dt><dd>OzCHI (3 reviews) &middot; ACII (1 review)</dd></div></dl></div></div>
+      </div>
+      <div class="row" id="svc-4" data-idx="Academic Leadership">
+        <button class="row-btn" aria-expanded="false"><span class="when">2021&ndash;2022</span><span class="what">Academic Leadership<span class="where">University and academic community</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="row-body"><div><dl class="facts"><div><dt>Role</dt><dd>Alumni President, University of Lille</dd></div><div><dt>Invited / Public talk</dt><dd>Presented at the Cognitive Science Forum (France), March 2022</dd></div></dl></div></div>
+      </div>
+      </div>
+    </section>
+
+    <section class="panel" id="awards" data-name="Awards" aria-label="Awards">
+      <div class="panel-head"><h2>Funding &amp; Awards</h2></div>
+      <div class="grid-cards stagger">
+        <article class="tile" id="award-1" data-idx="University Doctoral Scholarship"><span class="label">2023&ndash;2026</span><h3>University Doctoral Scholarship</h3></article>
+        <article class="tile" id="award-3" data-idx="Student Volunteer Award, Day Captain"><span class="label">HRI 2026</span><h3>Student Volunteer Award, Day Captain</h3></article>
+        <article class="tile" id="award-4" data-idx="Best Presentation Award, 2nd Place"><span class="label">2025</span><h3>Best Presentation Award, 2nd Place</h3><p>CSSE Postgraduate Conference 2025.</p></article>
+        <article class="tile" id="award-5" data-idx="Honorable Mention"><span class="label">HRI 2025</span><h3>Honorable Mention</h3><p>Pioneer Paper for &ldquo;Skepticism about Robots&rsquo; Implausible Statements&rdquo;.</p></article>
+        <article class="tile" id="award-6" data-idx="Research Student Publication Prize"><span class="label">2024</span><h3>Research Student Publication Prize</h3><p>University of Canterbury.</p></article>
+        <article class="tile" id="award-2" data-idx="Research Mobility Grant"><span class="label">2022</span><h3>Research Mobility Grant</h3><p>Supported by the French government through the Program &ldquo;Investissements d&rsquo;avenir&rdquo; (I-SITE ULNE / ANR-16-IDEX-0004 ULNE) managed by the National Research Agency.</p></article>
+      </div>
+    </section>
+
+    <section class="panel" id="skills" data-name="Skills" aria-label="Skills">
+      <div class="panel-head"><h2>Skills &amp; Interests</h2></div>
+      <div class="skills-layout">
+        <div class="skill-rows stagger">
+          <div class="skill-row" id="skill-1" data-idx="Languages">
+            <span class="label">Languages</span>
+            <ul class="langs">
+              <li><span class="lang">French</span><span class="lvl">native</span></li>
+              <li><span class="lang">English</span><span class="lvl">fluent</span></li>
+              <li><span class="lang">Portuguese</span><span class="lvl">good</span></li>
+              <li><span class="lang">German</span><span class="lvl">previously fluent</span></li>
+            </ul>
+          </div>
+          <div class="skill-row" id="skill-2" data-idx="Technical &amp; Coding Skills">
+            <span class="label">Technical &amp; Coding Skills</span>
+            <ul class="chips"><li>HTML</li><li>E&#8209;Prime</li><li>PsychoPy</li><li>R</li><li>Certificate in introduction to programming with MATLAB</li></ul>
+          </div>
+          <div class="skill-row" id="skill-3" data-idx="Research Methods">
+            <span class="label">Research Methods</span>
+            <ul class="chips"><li>Behavioural experiment design</li><li>Cognitive and neuropsychological assessment</li><li>Data collection and analysis</li><li>Psychometrics</li></ul>
+          </div>
+          <div class="skill-row" id="skill-4" data-idx="Applied Expertise">
+            <span class="label">Applied Expertise</span>
+            <ul class="chips"><li>HRI</li><li>Neuropsychology</li><li>Cognitive psychology</li><li>Social cognition</li><li>Behavioural studies</li><li>Experimental design for social and cognitive neuroscience</li><li>Quantitative and qualitative analyses</li></ul>
+          </div>
+        </div>
+        <div class="hobbies" id="skill-5" data-idx="Hobbies">
+          <span class="label" style="margin-bottom:10px">Hobbies</span>
+          <div class="hobby-grid stagger">
+            <a class="tile hobby hobby-feature" href="meteorites.html">
+              <span class="h-ic"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px"><circle cx="12" cy="12" r="3"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><path d="M10.4 21.9a10 10 0 0 0 9.9-8.4M3.7 10.5a10 10 0 0 1 8.4-8.4"/></svg></span>
+              <h3>Meteorites</h3>
+              <span class="meta">A map of the meteorites found in France</span>
+              <span class="btn btn-accent" style="margin-top:auto;align-self:flex-start">Explore the map <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <div class="tile hobby"><span class="h-ic"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M14 11a2 2 0 1 1-4 0 4 4 0 0 1 8 0 6 6 0 0 1-12 0 8 8 0 0 1 16 0 10 10 0 1 1-20 0 11.93 11.93 0 0 1 2.42-7.22 2 2 0 1 1 3.16 2.44"/></svg></span><h3>Fossils</h3></div>
+            <div class="tile hobby"><span class="h-ic"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6M2 9h20"/></svg></span><h3>Minerals</h3></div>
+            <div class="tile hobby hobby-wide"><span class="h-ic"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="m10.07 11.05 4.24-1.1M13.56 11.74l3.03 3.03M16.6 9.5l1.52 5.64M4.4 11.8 16.6 8.5l1.5 5.6-12.2 3.3zM2 12.3l1.5 5.6M5 21l3-6M11 21l-3-6"/></svg></span><h3>Astronomy</h3><span class="meta">Former member of the Soci&eacute;t&eacute; Astronomique de France</span></div>
+            <div class="tile hobby"><span class="h-ic"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px"><circle cx="13" cy="4" r="2"/><path d="m4 22 5-7 3 2 1 5M8 11l3-4 4 3 3 1M11 7l-2 6"/></svg></span><h3>Running</h3></div>
+            <div class="tile hobby"><span class="h-ic"><svg class="i" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M10 2v2M14 2v2M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1M6 2v2"/></svg></span><h3>Coffee latte art</h3></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="contact" data-name="Contact" aria-label="Contact">
+      <div class="panel-head"><h2>Contact</h2></div>
+      <div class="contact stagger">
+        <div class="tile">
+          <span class="label">Email</span>
+          <a class="mail" href="mailto:benjamin.lebrun@pg.canterbury.ac.nz">benjamin.lebrun@pg.canterbury.ac.nz</a>
+          <div style="display:flex;gap:8px;margin-top:10px"><a class="btn btn-accent" href="mailto:benjamin.lebrun@pg.canterbury.ac.nz"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Write</a><button class="btn" data-copy="benjamin.lebrun@pg.canterbury.ac.nz" data-msg="Email copied"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy</button></div>
+        </div>
+        <div class="tile">
+          <span class="label">Affiliation</span>
+          <h3>University of Canterbury</h3>
+          <span class="meta">Christchurch, New Zealand.</span>
+        </div>
+      </div>
+    </section>
   </main>
+</div>
+
+<div class="palette" role="dialog" aria-label="Search">
+  <div class="pal">
+    <input type="text" placeholder="Search publications, roles, talks&hellip;" aria-label="Search the site">
+    <ul role="listbox"></ul>
+    <div class="pal-foot"><span>&uarr;&darr; to move</span><span>&crarr; to open</span><span>esc to close</span></div>
+  </div>
+</div>
+<div class="lightbox" aria-hidden="true"><button class="icon-btn" aria-label="Close"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button><img alt=""></div>
+<div class="toast" role="status"></div>
+<script src="app.js" defer></script>
 </body>
 </html>
